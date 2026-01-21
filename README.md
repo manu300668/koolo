@@ -1,1 +1,1 @@
-# koolo Tienda de ropa urbana, casual
+# koolo Tienda de ropa casual 
