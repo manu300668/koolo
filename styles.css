@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&d@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -22,49 +23,7 @@ body {
     animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Botón CTA agresivo */
-button.cta {
-    margin-top: 20px;
-    padding: 15px 50px;
-    font-size: 1.2em;
-    font-weight: 700;
-    background: transparent;
-    color: #fff;
-    border: 2px solid #fff;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Hover agresivo */
-button.cta:hover {
-    color: #000;
-    background: #fff;
-    border-color: #fff;
-    animation: shake 0.5s;
-}
-
-/* Animación shake rápida */
-@keyframes shake {
-    0% { transform: translateX(0); }
-    10% { transform: translateX(-2px); }
-    20% { transform: translateX(2px); }
-    30% { transform: translateX(-2px); }
-    40% { transform: translateX(2px); }
-    50% { transform: translateX(-2px); }
-    60% { transform: translateX(2px); }
-    70% { transform: translateX(-2px); }
-    80% { transform: translateX(2px); }
-    90% { transform: translateX(-2px); }
-    100% { transform: translateX(0); }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
+/* Glitch */
 .glitch {
     position: relative;
     font-size: 5rem;
@@ -110,6 +69,7 @@ button.cta:hover {
     100% { transform: translate(0, 0); }
 }
 
+/* Tagline */
 .tagline {
     margin-top: 1rem;
     font-size: 1.2rem;
@@ -117,8 +77,53 @@ button.cta:hover {
     text-transform: uppercase;
 }
 
+/* Botón CTA agresivo */
+button.cta {
+    margin-top: 20px;
+    padding: 15px 50px;
+    font-size: 1.2em;
+    font-weight: 700;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover agresivo */
+button.cta:hover {
+    color: #000;
+    background: #fff;
+    border-color: #fff;
+    animation: shake 0.5s;
+}
+
+/* Animación shake rápida */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-2px); }
+    20% { transform: translateX(2px); }
+    30% { transform: translateX(-2px); }
+    40% { transform: translateX(2px); }
+    50% { transform: translateX(-2px); }
+    60% { transform: translateX(2px); }
+    70% { transform: translateX(-2px); }
+    80% { transform: translateX(2px); }
+    90% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+
+/* Footer */
 footer {
     margin-top: 4rem;
     font-size: 0.8rem;
     color: #666;
+}
+
+/* Fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
