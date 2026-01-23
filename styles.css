@@ -1,72 +1,103 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Bebas Neue', sans-serif;
 }
 
 body {
-  background-color: #000;
-  color: #fff;
-  min-height: 100vh;
+    background-color: #000;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.container {
+    animation: fadeIn 1.5s ease-in-out;
 }
 
-.hero h1 {
-  font-size: 4rem;
-  font-weight: 900;
-  letter-spacing: 0.3rem;
+button.cta {
+    margin-top: 20px;
+    padding: 15px 50px;
+    font-size: 1.2em;
+    font-weight: 700;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button.cta:hover {
+    background: #fff;
+    color: #000;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.glitch {
+    position: relative;
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: 0.3rem;
+    color: #fff;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+}
+
+.glitch::before {
+    animation: glitchTop 1s infinite linear;
+    clip: rect(0, 9999px, 35%, 0);
+    color: #f00;
+}
+
+.glitch::after {
+    animation: glitchBottom 1s infinite linear;
+    clip: rect(65%, 9999px, 100%, 0);
+    color: #0ff;
+}
+
+@keyframes glitchTop {
+    0% { transform: translate(0, -1px); }
+    20% { transform: translate(-1px, 0); }
+    40% { transform: translate(1px, -1px); }
+    60% { transform: translate(-1px, 1px); }
+    80% { transform: translate(1px, 0); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes glitchBottom {
+    0% { transform: translate(0, 1px); }
+    20% { transform: translate(1px, 0); }
+    40% { transform: translate(-1px, 1px); }
+    60% { transform: translate(1px, -1px); }
+    80% { transform: translate(-1px, 0); }
+    100% { transform: translate(0, 0); }
 }
 
 .tagline {
-  margin-top: 1rem;
-  font-size: 1.1rem;
-  color: #bdbdbd;
-  text-transform: uppercase;
-}
-
-.cta {
-  margin-top: 2.5rem;
-  padding: 15px 40px;
-  background: transparent;
-  color: #fff;
-  border: 2px solid #fff;
-  font-weight: 700;
-  letter-spacing: 0.15rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.cta:hover {
-  background: #fff;
-  color: #000;
-}
-
-.manifesto {
-  padding: 4rem 2rem;
-  text-align: center;
-  border-top: 1px solid #222;
-}
-
-.manifesto p {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #ccc;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #bdbdbd;
+    text-transform: uppercase;
 }
 
 footer {
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.8rem;
-  color: #666;
-}https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap
+    margin-top: 4rem;
+    font-size: 0.8rem;
+    color: #666;
+}
