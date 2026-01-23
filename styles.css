@@ -1,246 +1,64 @@
-/* =========================
-   RESET Y BASE
-========================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Tipografía y base */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #000;
-  color: #fff;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* =========================
-   HERO / PORTADA
-========================= */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* LOGO KO O LO */
-.logo {
-  font-size: clamp(4rem, 10vw, 8rem);
-  font-weight: 900;
-  letter-spacing: 0.35rem;
-  position: relative;
-}
-
-/* GLITCH TEXTO */
-.glitch {
-  position: relative;
-}
-
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  width: 100%;
-  background: transparent;
-  overflow: hidden;
-}
-
-.glitch::before {
-  top: -2px;
-  color: #fff;
-  animation: glitchTop 2s infinite linear alternate-reverse;
-}
-
-.glitch::after {
-  top: 2px;
-  color: #777;
-  animation: glitchBottom 1.4s infinite linear alternate-reverse;
-}
-
-@keyframes glitchTop {
-  0% { clip-path: inset(0 0 80% 0); }
-  50% { clip-path: inset(15% 0 55% 0); }
-  100% { clip-path: inset(0 0 85% 0); }
-}
-
-@keyframes glitchBottom {
-  0% { clip-path: inset(80% 0 0 0); }
-  50% { clip-path: inset(55% 0 15% 0); }
-  100% { clip-path: inset(85% 0 0 0); }
-}
-
-/* TAGLINE */
-.tagline {
-  margin-top: 1.5rem;
-  margin-bottom: 2.5rem;
-  font-size: 1.1rem;
-  letter-spacing: 0.15rem;
-  opacity: 0.8;
-}
-
-/* =========================
-   BOTÓN GLITCH
-========================= */
-.btn-glitch {
-  position: relative;
-  padding: 1rem 3rem;
-  border: 2px solid #fff;
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.95rem;
-  letter-spacing: 0.2rem;
-  overflow: hidden;
-  transition: background 0.25s, color 0.25s;
-}
-
-.btn-glitch:hover {
-  background: #fff;
-  color: #000;
-}
-
-.btn-glitch::before {
-  content: attr(data-text);
-  position: absolute;
-  inset: 0;
-  background: #fff;
-  color: #000;
-  clip-path: inset(0 100% 0 0);
-}
-
-.btn-glitch:hover::before {
-  animation: glitchBtn 0.35s steps(2);
-}
-
-@keyframes glitchBtn {
-  0% { clip-path: inset(0 100% 0 0); }
-  50% { clip-path: inset(0 0 0 0); }
-  100% { clip-path: inset(0 100% 0 0); }
-}
-
-/* =========================
-   SECCIONES
-========================= */
-.section {
-  padding: 5rem 10%;
-}
-
-.section.dark {
-  background-color: #111;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  letter-spacing: 0.25rem;
-  margin-bottom: 3rem;
-}
-
-/* =========================
-   GRID
-========================= */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2.5rem;
-}
-
-/* =========================
-   CARDS
-========================= */
-.card {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
   background: #000;
-  border: 1px solid #2a2a2a;
-  padding: 1.5rem;
-  transition: transform 0.3s ease, border 0.3s ease;
+  color: #fff;
 }
+.logo { font-family: 'Oswald', sans-serif; letter-spacing: 0.28rem; }
 
-.card:hover {
-  transform: translateY(-10px);
-  border-color: #fff;
+/* Navbar */
+.nav {
+  position: fixed; top:0; width:100%; display:flex; justify-content:space-between;
+  padding:1rem 8%; background:rgba(0,0,0,0.85); backdrop-filter: blur(6px); z-index:1000;
 }
+.nav ul { display:flex; gap:2rem; list-style:none; }
+.nav a { text-decoration:none; color:#fff; opacity:0.7; }
+.nav a:hover { opacity:1; }
 
-.card h3 {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-  letter-spacing: 0.12rem;
-}
+/* Hero */
+.hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; text-align:center; }
+.btn { padding:0.7rem 2rem; background:none; border:1px solid #fff; color:#fff; cursor:pointer; letter-spacing:0.2rem; }
 
-.card p {
-  font-size: 0.9rem;
-  opacity: 0.75;
-}
+/* Animaciones */
+.fade-up { opacity:0; transform:translateY(30px); animation:fadeUp 0.8s ease forwards; }
+@keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+.delay-1 { animation-delay:0.2s; }
+.delay-2 { animation-delay:0.4s; }
+.delay-3 { animation-delay:0.6s; }
 
-/* IMAGEN PLACEHOLDER */
-.img-placeholder {
-  height: 220px;
-  background: repeating-linear-gradient(
-    45deg,
-    #111,
-    #111 10px,
-    #000 10px,
-    #000 20px
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  letter-spacing: 0.25rem;
-  color: #555;
-}
+/* Cards */
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; padding:4rem 8%; }
+.card-img { width:100%; height:220px; object-fit:cover; margin-bottom:1rem; }
+.card:hover { transform:translateY(-6px); transition:0.3s ease; }
 
-/* =========================
-   IMÁGENES REALES EN CARDS
-========================= */
-.card-img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-}
+/* Product */
+.product-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; padding:4rem 8%; }
+.product-info h1 { font-size:2.2rem; }
+.price { margin:1rem 0; font-size:1.4rem; }
+.description { opacity:0.8; margin-bottom:2rem; }
+.note { margin-top:1.5rem; font-size:0.8rem; letter-spacing:0.2rem; opacity:0.6; }
 
-/* =========================
-   TEXTO
-========================= */
-.text {
-  max-width: 720px;
-  font-size: 1.05rem;
-  margin-bottom: 1.5rem;
-}
+/* Checkout */
+.checkout-form { max-width:400px; margin:3rem auto 0; display:flex; flex-direction:column; gap:1.2rem; }
+.checkout-form input { padding:0.8rem; background:none; border:1px solid #fff; color:#fff; }
 
-.muted {
-  opacity: 0.6;
-}
+/* Lookbook */
+.lookbook { background:#050505; text-align:center; }
+.lookbook p { line-height:1.8; opacity:0.75; }
 
-/* =========================
-   FOOTER
-========================= */
-.footer {
-  padding: 2rem;
-  text-align: center;
-  border-top: 1px solid #222;
-  font-size: 0.75rem;
-  letter-spacing: 0.1rem;
-}
+/* Newsletter */
+.newsletter form { margin-top:2rem; display:flex; justify-content:center; gap:1rem; }
+.newsletter input { background:none; border:1px solid #fff; padding:0.7rem; color:#fff; }
 
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 768px) {
-  .section {
-    padding: 4rem 7%;
-  }
+/* Drop status */
+.drop-status { display:inline-block; margin-top:1.5rem; padding:0.4rem 1.2rem; border:1px solid #fff; font-size:0.75rem; letter-spacing:0.3rem; }
 
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .tagline {
-    font-size: 1rem;
-  }
+/* Mobile */
+@media (max-width:768px) {
+  .nav ul { display:none; }
+  .product-grid { grid-template-columns:1fr; }
+  .grid { padding:2rem 2rem; }
+  .logo { font-size:3rem; }
+  .btn { width:100%; max-width:300px; }
 }
