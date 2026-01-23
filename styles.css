@@ -1,130 +1,237 @@
-/* RESET BÁSICO */
+/* =========================
+   RESET Y BASE
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* CUERPO */
 body {
-  background: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #000;
   color: #fff;
-  font-family: 'Arial Black', Impact, sans-serif;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* HERO */
+/* =========================
+   HERO / PORTADA
+========================= */
 .hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-/* LOGO */
+/* LOGO KO O LO */
 .logo {
-  font-size: clamp(3.5rem, 12vw, 7rem);
+  font-size: clamp(4rem, 10vw, 8rem);
   font-weight: 900;
   letter-spacing: 0.35rem;
   position: relative;
-  display: inline-block;
 }
 
-/* DIFERENCIAR LAS O */
-.logo span {
-  display: inline-block;
-  transform: scaleX(1.1);
+/* GLITCH TEXTO */
+.glitch {
+  position: relative;
 }
 
-/* GLITCH */
 .glitch::before,
 .glitch::after {
   content: attr(data-text);
   position: absolute;
-  top: 0;
   left: 0;
   width: 100%;
+  background: transparent;
   overflow: hidden;
 }
 
 .glitch::before {
+  top: -2px;
   color: #fff;
-  left: 2px;
-  text-shadow: -2px 0 white;
-  animation: glitch-1 2.5s infinite linear alternate-reverse;
+  animation: glitchTop 2s infinite linear alternate-reverse;
 }
 
 .glitch::after {
-  color: #fff;
-  left: -2px;
-  text-shadow: -2px 0 white;
-  animation: glitch-2 1.8s infinite linear alternate-reverse;
+  top: 2px;
+  color: #777;
+  animation: glitchBottom 1.4s infinite linear alternate-reverse;
 }
 
-@keyframes glitch-1 {
-  0% { clip-path: inset(10% 0 85% 0); }
-  20% { clip-path: inset(30% 0 50% 0); }
-  40% { clip-path: inset(60% 0 20% 0); }
-  60% { clip-path: inset(20% 0 60% 0); }
-  80% { clip-path: inset(50% 0 30% 0); }
-  100% { clip-path: inset(0 0 90% 0); }
+@keyframes glitchTop {
+  0% { clip-path: inset(0 0 80% 0); }
+  50% { clip-path: inset(15% 0 55% 0); }
+  100% { clip-path: inset(0 0 85% 0); }
 }
 
-@keyframes glitch-2 {
-  0% { clip-path: inset(80% 0 5% 0); }
-  20% { clip-path: inset(40% 0 40% 0); }
-  40% { clip-path: inset(10% 0 70% 0); }
-  60% { clip-path: inset(70% 0 10% 0); }
-  80% { clip-path: inset(30% 0 50% 0); }
-  100% { clip-path: inset(90% 0 0 0); }
+@keyframes glitchBottom {
+  0% { clip-path: inset(80% 0 0 0); }
+  50% { clip-path: inset(55% 0 15% 0); }
+  100% { clip-path: inset(85% 0 0 0); }
 }
 
-/* TEXTO */
+/* TAGLINE */
 .tagline {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   margin-bottom: 2.5rem;
-  font-size: 1rem;
-  letter-spacing: 0.2rem;
-  text-transform: uppercase;
+  font-size: 1.1rem;
+  letter-spacing: 0.15rem;
   opacity: 0.8;
 }
 
-/* BOTÓN GLITCH */
+/* =========================
+   BOTÓN GLITCH
+========================= */
 .btn-glitch {
   position: relative;
-  display: inline-block;
-  padding: 14px 40px;
+  padding: 1rem 3rem;
+  border: 2px solid #fff;
   color: #fff;
   text-decoration: none;
-  border: 2px solid #fff;
+  font-size: 0.95rem;
   letter-spacing: 0.2rem;
   overflow: hidden;
-  transition: background 0.3s;
-}
-
-.btn-glitch::before {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  color: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: translateX(-100%);
-  transition: transform 0.3s;
-}
-
-.btn-glitch:hover::before {
-  transform: translateX(0);
+  transition: background 0.25s, color 0.25s;
 }
 
 .btn-glitch:hover {
   background: #fff;
   color: #000;
+}
+
+.btn-glitch::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  color: #000;
+  clip-path: inset(0 100% 0 0);
+}
+
+.btn-glitch:hover::before {
+  animation: glitchBtn 0.35s steps(2);
+}
+
+@keyframes glitchBtn {
+  0% { clip-path: inset(0 100% 0 0); }
+  50% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 100% 0 0); }
+}
+
+/* =========================
+   SECCIONES
+========================= */
+.section {
+  padding: 5rem 10%;
+}
+
+.section.dark {
+  background-color: #111;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  letter-spacing: 0.25rem;
+  margin-bottom: 3rem;
+}
+
+/* =========================
+   GRID
+========================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
+}
+
+/* =========================
+   CARDS
+========================= */
+.card {
+  background: #000;
+  border: 1px solid #2a2a2a;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, border 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: #fff;
+}
+
+.card h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.12rem;
+}
+
+.card p {
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+/* IMAGEN PLACEHOLDER */
+.img-placeholder {
+  height: 220px;
+  background: repeating-linear-gradient(
+    45deg,
+    #111,
+    #111 10px,
+    #000 10px,
+    #000 20px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.25rem;
+  color: #555;
+}
+
+/* =========================
+   TEXTO
+========================= */
+.text {
+  max-width: 720px;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.muted {
+  opacity: 0.6;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid #222;
+  font-size: 0.75rem;
+  letter-spacing: 0.1rem;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 7%;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
 }
 
 
