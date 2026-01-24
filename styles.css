@@ -238,3 +238,4 @@ body {
 .card.reveal {
   transition-delay: var(--delay);
 }
+<div class="card reveal" style="--delay: 0s;">
