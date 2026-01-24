@@ -1,24 +1,18 @@
-// SCROLL REVEAL
-const reveals = document.querySelectorAll(".reveal");
-const revealOnScroll = () => {
-  const wH = window.innerHeight;
-  const rP = 100;
-  reveals.forEach(el => {
-    const t = el.getBoundingClientRect().top;
-    if (t < wH - rP) el.classList.add("active");
-  });
+const carritoFlotante = document.getElementById("carrito-flotante");
+const carritoCount = document.getElementById("carrito-count");
+const carritoSection = document.getElementById("carrito");
+
+// Función para actualizar contador
+const actualizarContador = () => {
+  carritoCount.textContent = carrito.length;
 };
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
 
-// CARRITO FUNCIONAL
-const carritoItems = document.querySelector('.carrito-items');
-const carritoTotal = document.querySelector('.carrito-total');
-const vaciarBtn = document.querySelector('.vaciar-carrito');
-const addBtns = document.querySelectorAll('.btn-cart');
+// Abrir/ocultar carrito al click en flotante
+carritoFlotante.addEventListener("click", () => {
+  carritoSection.scrollIntoView({behavior:"smooth"});
+});
 
-let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
+// Llamar esta función dentro de renderCarrito()
 const renderCarrito = () => {
   carritoItems.innerHTML = '';
   let total = 0;
@@ -32,29 +26,5 @@ const renderCarrito = () => {
   });
   carritoTotal.textContent = `Total: ${total}€`;
   localStorage.setItem('carrito', JSON.stringify(carrito));
+  actualizarContador();
 };
-
-addBtns.forEach((btn, i) => {
-  btn.addEventListener('click', () => {
-    const card = btn.closest('.card');
-    const nombre = card.querySelector('h3').textContent;
-    const precio = parseFloat(card.querySelector('.precio').textContent.replace('€',''));
-    carrito.push({nombre, precio});
-    renderCarrito();
-  });
-});
-
-carritoItems.addEventListener('click', e => {
-  if(e.target.tagName === 'BUTTON') {
-    const index = e.target.dataset.index;
-    carrito.splice(index, 1);
-    renderCarrito();
-  }
-});
-
-vaciarBtn.addEventListener('click', () => {
-  carrito = [];
-  renderCarrito();
-});
-
-renderCarrito();
