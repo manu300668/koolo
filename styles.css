@@ -218,3 +218,23 @@ body {
   background: #fff;
   color: #000;
 }
+
+/* =========================
+   ANIMACIONES SCROLL (AGRESIVO)
+========================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(80px) scale(0.95);
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Cards más agresivas */
+.card.reveal {
+  transition-delay: var(--delay);
+}
