@@ -16,6 +16,7 @@ const revealOnScroll = () => {
     }
   });
 };
-
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
+
+<div class="card reveal" style="--delay: 0.15s;">
