@@ -145,3 +145,76 @@ body {
   color: #000;
   transform: translateY(-2px);
 }
+
+/* =========================
+   COLECCIÓN / DROP
+========================= */
+
+.coleccion {
+  background: #000;
+  color: #fff;
+  padding: 100px 5vw;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 0.3em;
+  margin-bottom: 80px;
+  text-transform: uppercase;
+}
+
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+.card {
+  border: 1px solid #222;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease, border 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border: 1px solid #fff;
+}
+
+.card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  background: #111;
+}
+
+.card h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.precio {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.btn-cart {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 12px 25px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: all 0.15s ease;
+}
+
+.btn-cart:hover {
+  background: #fff;
+  color: #000;
+}
