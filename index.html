@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>KOLOO Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilos.css">
+  <meta property="og:image" content="imagenes/og-image.webp">
+  <script src="https://www.paypal.com/sdk/js?client-id=TU_CLIENT_ID_LIVE&currency=EUR"></script>
+</head>
+<body>
 
+<header>
+  <h1 class="logo">KOLOO</h1>
+  <div id="carrito-icono">🛒 <span id="contador">0</span></div>
+</header>
+
+<main>
+  <!-- Productos -->
+  <section class="productos">
+    <div class="producto" data-id="producto1" data-precio="29">
+      <img src="imagenes/producto1-1200.webp" alt="Producto 1">
+      <h2>Producto 1</h2>
+      <p>€29</p>
+      <button class="btn-agregar">Añadir al carrito</button>
+    </div>
+    <div class="producto" data-id="producto2" data-precio="39">
+      <img src="imagenes/producto2-1200.webp" alt="Producto 2">
+      <h2>Producto 2</h2>
+      <p>€39</p>
+      <button class="btn-agregar">Añadir al carrito</button>
+    </div>
+    <div class="producto" data-id="producto3" data-precio="49">
+      <img src="imagenes/producto3-1200.webp" alt="Producto 3">
+      <h2>Producto 3</h2>
+      <p>€49</p>
+      <button class="btn-agregar">Añadir al carrito</button>
+    </div>
+  </section>
+
+  <!-- Checkout -->
+  <section class="checkout">
+    <h2>Finalizar Compra</h2>
+    <div id="paypal-button-container"></div>
+    <a href="https://buy.stripe.com/xxxxx" class="cta" target="_blank">Pagar con tarjeta</a>
+    <section class="bizum">
+      <h3>Pago por Bizum</h3>
+      <p>Envía el pago al número: <strong>6XX XXX XXX</strong> con concepto KOLOO + email</p>
+    </section>
+  </section>
+</main>
+
+<footer>
+  <a href="aviso-legal.html">Aviso Legal</a> ·
+  <a href="privacidad.html">Privacidad</a> ·
+  <a href="cookies.html">Cookies</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
