@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Koolo Store</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="header-left">
+    <img src="img/logo.png" id="logo" alt="Koolo Logo">
+  </div>
+
+  <div class="header-right">
+    <button id="login-btn">Login</button>
+    <button id="cartBtn">🛒 <span id="cart-count">0</span></button>
+    <button id="admin-btn">Admin</button>
+  </div>
+</header>
+
+<main id="products"></main>
+
+<aside id="cart">
+  <h3>Carrito</h3>
+  <div id="cartItems"></div>
+</aside>
+
+<!-- Login modal usuario -->
+<div id="login-modal" class="modal">
+  <div class="modal-content">
+    <span id="close-login">&times;</span>
+    <h3>Login</h3>
+    <input type="email" id="login-email" placeholder="Correo">
+    <input type="password" id="login-pass" placeholder="Contraseña">
+    <button id="login-submit">Entrar</button>
+  </div>
+</div>
+
+<!-- Login modal admin -->
+<div id="admin-modal" class="modal">
+  <div class="modal-content">
+    <span id="close-admin">&times;</span>
+    <h3>Admin Login</h3>
+    <input type="password" id="admin-pass" placeholder="Contraseña admin">
+    <button id="admin-login-submit">Entrar</button>
+  </div>
+</div>
+
+<!-- Panel admin avanzado -->
+<div id="admin-panel" class="modal">
+  <div class="modal-content">
+    <span id="close-admin-panel">&times;</span>
+    <h3>Mini Admin Avanzado</h3>
+
+    <label>Logo URL:</label>
+    <input type="text" id="admin-logo" placeholder="img/logo.png">
+
+    <label>Color de cabecera:</label>
+    <input type="color" id="admin-color" value="#ffffff">
+
+    <label>Instagram URL:</label>
+    <input type="text" id="admin-instagram" placeholder="https://instagram.com/...">
+
+    <h4>Productos</h4>
+    <div id="admin-products"></div>
+    <button id="admin-add-product">Añadir producto</button>
+
+    <button id="admin-save">Guardar cambios</button>
+  </div>
+</div>
+
+<script src="index.js"></script>
+
+</body>
+</html>
